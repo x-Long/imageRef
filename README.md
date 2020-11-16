@@ -15,17 +15,16 @@
 **访问路径：** x-long.github.io/imageRef/README.md  
 **开启Project Pages：** 在仓库的settings选项下找到Project Pages，然后如图设置。
 
-<img src="..\imageRef\project_page_set.png" style="border:2px solid black" height="300px" >
+<img src="https://x-long.github.io/imageRef/project_page_set.png" style="border:2px solid black" height="300px" >
 
 --------------------------------
->  GitHub 宣布，自2020年10月1日起，在 GitHub 平台上创建的所有源代码存储库都将默认命名为 main ，而非原本的 master 。
->- main 更加简洁明了
->- master slave 带有种族歧视色彩
-
-
 
 本地路径：E:/demo/imageRef/filename
 
 服务路径：https://x-long.github.io/imageRef/filename
 
 操作：replace E:/demo as https://x-long.github.io
+
+>  GitHub 宣布，自2020年10月1日起，在 GitHub 平台上创建的所有源代码存储库都将默认命名为 main ，而非原本的 master 。
+>- main 更加简洁明了
+>- master slave 带有种族歧视色彩
